@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components/native";
+import { AuthContext } from "../context";
 
 const MainContainer = styled.View`
   flex: 1;
@@ -24,26 +25,16 @@ const MoveText = styled.Text`
   color: darkblue;
 `;
 
-export default function Home({ navigation, route }) {
+export default function Profile({ navigation, route }) {
+  const { signOut } = useContext(AuthContext);
   return (
     <MainContainer>
-      <MainText>Master List Screen</MainText>
-      <MoveBtn
-        onPress={() =>
-          navigation.push("Detail", { name: "React Native by Example" })
-        }
-      >
-        <MoveText>React Native by Example</MoveText>
-      </MoveBtn>
-      <MoveBtn
-        onPress={
-          (() => navigation.push("Detail"), { name: "React Native School" })
-        }
-      >
-        <MoveText>React Native School</MoveText>
-      </MoveBtn>
+      <MainText>Profile Screen</MainText>
       <MoveBtn onPress={() => navigation.toggleDrawer()}>
         <MoveText>Drawer</MoveText>
+      </MoveBtn>
+      <MoveBtn onPress={() => signOut()}>
+        <MoveText>Sign Out</MoveText>
       </MoveBtn>
     </MainContainer>
   );

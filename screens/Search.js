@@ -24,26 +24,22 @@ const MoveText = styled.Text`
   color: darkblue;
 `;
 
-export default function Home({ navigation, route }) {
+export default function Search({ navigation, route }) {
   return (
     <MainContainer>
-      <MainText>Master List Screen</MainText>
-      <MoveBtn
-        onPress={() =>
-          navigation.push("Detail", { name: "React Native by Example" })
-        }
-      >
-        <MoveText>React Native by Example</MoveText>
+      <MainText>Search Screen</MainText>
+      <MoveBtn onPress={() => navigation.push("Search2")}>
+        <MoveText>Search 2</MoveText>
       </MoveBtn>
       <MoveBtn
-        onPress={
-          (() => navigation.push("Detail"), { name: "React Native School" })
+        onPress={() =>
+          navigation.navigate("Home", {
+            screen: "Detail",
+            params: { name: "React Native School" },
+          })
         }
       >
         <MoveText>React Native School</MoveText>
-      </MoveBtn>
-      <MoveBtn onPress={() => navigation.toggleDrawer()}>
-        <MoveText>Drawer</MoveText>
       </MoveBtn>
     </MainContainer>
   );

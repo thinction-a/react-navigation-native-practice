@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Alert } from "react-native";
 import styled from "styled-components/native";
 
 const MainContainer = styled.View`
@@ -24,26 +25,15 @@ const MoveText = styled.Text`
   color: darkblue;
 `;
 
-export default function Home({ navigation, route }) {
+export default function Search2({ navigation, route }) {
   return (
     <MainContainer>
-      <MainText>Master List Screen</MainText>
-      <MoveBtn
-        onPress={() =>
-          navigation.push("Detail", { name: "React Native by Example" })
-        }
-      >
-        <MoveText>React Native by Example</MoveText>
+      <MainText>Search2 Screen</MainText>
+      <MoveBtn onPress={() => Alert("todo!")}>
+        <MoveText>Search 2</MoveText>
       </MoveBtn>
-      <MoveBtn
-        onPress={
-          (() => navigation.push("Detail"), { name: "React Native School" })
-        }
-      >
+      <MoveBtn onPress={() => Alert("todo!")}>
         <MoveText>React Native School</MoveText>
-      </MoveBtn>
-      <MoveBtn onPress={() => navigation.toggleDrawer()}>
-        <MoveText>Drawer</MoveText>
       </MoveBtn>
     </MainContainer>
   );
